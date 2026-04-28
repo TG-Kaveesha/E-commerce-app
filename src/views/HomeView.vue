@@ -21,14 +21,21 @@ const filteredProducts = computed(() =>
 
 <template>
   <div class="p-4">
-    <input v-model="search" placeholder="Search..." class="border p-2 mb-4" />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <input 
+      v-model="search" 
+      placeholder="Search..." 
+      class="border p-2 mb-4 w-full" 
+    />
+
+    <!-- 👇 THIS IS THE GRID -->
+    <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4">
       <ProductCard
         v-for="product in filteredProducts"
         :key="product.id"
         :product="product"
       />
     </div>
+
   </div>
 </template>

@@ -11,9 +11,20 @@ const goToDetail = () => {
 </script>
 
 <template>
-  <div class="border p-4 rounded shadow cursor-pointer" @click="goToDetail">
-    <img :src="product.thumbnail" class="w-full h-40 object-cover" />
-    <h2 class="font-bold">{{ product.title }}</h2>
-    <p>${{ product.price }}</p>
+  <div class="border p-4 rounded-xl shadow hover:shadow-lg transition duration-300" @click="goToDetail" style="cursor: pointer;">
+
+    <img 
+  :src="product.thumbnail" 
+  class="w-full h-40 object-contain bg-gray-100"
+/>
+
+    <h2 class="font-semibold text-sm mt-2 truncate">
+      {{ product.title }}
+    </h2>
+
+    <p class="text-blue-600 font-bold text-sm">
+      ${{ product.price }}
+    </p>
+
   </div>
 </template>
