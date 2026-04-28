@@ -7,7 +7,7 @@ const products = ref<Product[]>([]);
 const search = ref("");
 
 onMounted(async () => {
-  const res = await fetch("https://dummyjson.com/products");
+  const res = await fetch("https://dummyjson.com/products?limit=100");
   const data = await res.json();
   products.value = data.products;
 });

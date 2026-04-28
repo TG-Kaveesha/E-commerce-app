@@ -14,7 +14,7 @@ const goToDetail = () => {
   <div class="border p-4 rounded-xl shadow hover:shadow-lg transition duration-300" @click="goToDetail" style="cursor: pointer;">
 
     <img 
-  :src="product.thumbnail" 
+  :src="product.thumbnail || 'https://via.placeholder.com/150'" 
   class="w-full h-40 object-contain bg-gray-100"
 />
 
