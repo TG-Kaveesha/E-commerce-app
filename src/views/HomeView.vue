@@ -25,11 +25,11 @@ const filteredProducts = computed(() =>
     <input 
       v-model="search" 
       placeholder="Search..." 
-      class="border p-2 mb-4 w-full" 
+      class="border border-gray-300 p-2 mb-6 w-64 rounded ithalic text-sm focus:outline-none focus:ring-1 focus:ring-blue-400" 
     />
 
     <!-- 👇 THIS IS THE GRID -->
-    <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <ProductCard
         v-for="product in filteredProducts"
         :key="product.id"
