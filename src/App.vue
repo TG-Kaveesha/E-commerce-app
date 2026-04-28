@@ -1,37 +1,47 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <nav class="bg-white shadow-sm border-b p-4 flex justify-between items-center">
-      <div class="flex items-center gap-6">
-        <router-link to="/" class="text-xl font-bold text-blue-600">MyStore</router-link>
-        <router-link to="/" class="text-gray-600 hover:text-blue-600">Home</router-link>
-        <router-link to="/help" class="text-gray-600 hover:text-blue-600">Help</router-link>
-      </div>
-
-      <div class="flex gap-4">
-        <button v-if="!isLoggedIn" @click="signIn" class="px-4 py-2 text-gray-700 font-medium">
-          Sign In
-        </button>
+  <div class="min-h-screen bg-[#f8f9fa]">
+    <nav class="bg-[#007bff] text-white px-6 py-2 flex justify-between items-center shadow-sm">
+      <div class="text-lg font-semibold tracking-tight">E-Commerce-App</div>
+      
+      <div class="flex items-center gap-5 text-[14px]">
+        <router-link to="/" class="hover:underline">Home</router-link>
+        <router-link to="/contact" class="hover:underline">Contact</router-link>
+        <router-link to="/help" class="hover:underline">Help</router-link>
+        <router-link to="/login" class="hover:underline">Login</router-link>
         
-        <button v-else @click="signOut" class="px-4 py-2 bg-red-500 text-white rounded-lg">
-          Sign Out
+        <button @click="signIn" class="bg-white text-gray-800 px-3 py-1 rounded-[4px] text-xs font-medium shadow-sm hover:bg-gray-100">
+          Sign Up
+        </button>
+
+        <div class="flex items-center gap-1 cursor-pointer">
+          <span class="text-lg">🛒</span>
+          <span>(0)</span>
+        </div>
+
+        <button class="bg-[#ffc107] text-black px-2 py-1 rounded-[4px] text-[11px] font-bold flex items-center gap-1">
+          <span class="text-[10px]">✔</span> Dark/Light
         </button>
       </div>
     </nav>
-    <router-view />
+
+    <div class="bg-white border-b p-3">
+      <div class="max-w-[1400px] mx-auto">
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          class="w-72 border border-gray-300 rounded px-3 py-1.5 text-sm italic focus:outline-none focus:ring-1 focus:ring-blue-400"
+        />
+      </div>
+    </div>
+
+    <main class="max-w-[1400px] mx-auto p-4">
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
-// Basic state to handle buttons
 const isLoggedIn = ref(false);
-
-const signIn = () => {
-  isLoggedIn.value = true;
-};
-
-const signOut = () => {
-  isLoggedIn.value = false;
-};
+const signIn = () => isLoggedIn.value = true;
 </script>
