@@ -13,10 +13,11 @@
           Sign Up
         </button>
 
-        <div class="flex items-center gap-1 cursor-pointer">
+        <router-link to="/cart" class="flex items-center gap-1 cursor-pointer hover:opacity-80">
           <span class="text-lg">🛒</span>
-          <span>(0)</span>
-        </div>
+          <span class="font-bold">({{ cartStore.items.length }})</span>
+        </router-link>
+
 
         <button class="bg-[#ffc107] text-black px-2 py-1 rounded-[4px] text-[11px] font-bold flex items-center gap-1">
           <span class="text-[10px]">✔</span> Dark/Light
@@ -41,7 +42,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useCartStore } from './store/cart';
+
 const isLoggedIn = ref(false);
 const signIn = () => isLoggedIn.value = true;
+const cartStore = useCartStore();
+onMounted(() => {
+  cartStore.loadCart();
+});
 </script>
