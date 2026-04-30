@@ -30,7 +30,8 @@
 
     <div class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 p-3">
       <div class="max-w-[1400px] mx-auto">
-        <input 
+        <input
+        v-model="cartStore.searchQuery" 
           type="text" 
           placeholder="Search..." 
           class="w-72 border border-gray-300 dark:border-gray-600 rounded px-3 py-1.5 text-sm italic focus:outline-none focus:ring-1 focus:ring-blue-400 dark:bg-gray-700 dark:text-white"

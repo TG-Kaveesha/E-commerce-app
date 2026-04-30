@@ -3,7 +3,8 @@ import type { Product } from "../types/product";
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
-    items: [] as Product[]
+    items: [] as Product[],
+    searchQuery: ""
   }),
 
   actions: {
@@ -13,7 +14,7 @@ export const useCartStore = defineStore("cart", {
     },
     removeFromCart(productId: number) {
       this.items = this.items.filter((item) => item.id !== productId);
-      localStorage.removeItem("cart, JSON.stringify(this.items)");
+      this.saveToLocalStorage();
       
     },
 
