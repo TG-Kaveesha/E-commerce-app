@@ -9,12 +9,20 @@ export const useCartStore = defineStore("cart", {
   actions: {
     addToCart(product: Product) {
       this.items.push(product);
-      localStorage.setItem("cart", JSON.stringify(this.items));
+      this.saveToLocalStorage();
+    },
+    removeFromCart(productId: number) {
+      this.items = this.items.filter((item) => item.id !== productId);
+      localStorage.removeItem("cart, JSON.stringify(this.items)");
+      
     },
 
     loadCart() {
       const data = localStorage.getItem("cart");
       if (data) this.items = JSON.parse(data);
+    },
+    saveToLocalStorage() {
+      localStorage.setItem("cart", JSON.stringify(this.items));
     }
   }
 });
